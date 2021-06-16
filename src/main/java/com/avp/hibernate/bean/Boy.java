@@ -12,5 +12,7 @@ import java.sql.Timestamp;
 public class Boy {
     private Integer id;
     private String boy;
+    private String boyName;
+    private String boyLastName;
     private Timestamp timestamp;
 }

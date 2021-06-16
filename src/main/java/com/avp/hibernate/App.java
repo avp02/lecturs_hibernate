@@ -11,7 +11,7 @@ public class App {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         Boy boy = new Boy();
-        boy.setBoy("Vavavvv");
+        boy.setBoy("Sania");
         session.save(boy);
         session.getTransaction().commit();
         session.close();
