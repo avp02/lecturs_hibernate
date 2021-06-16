@@ -2,17 +2,15 @@ package com.avp.hibernate.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Timestamp;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Boy {
-    private String name;
-    private List<Toy> toyList = new ArrayList<>();
-
-    public Boy(String name) {
-        this.name = name;
-    }
+    private Integer id;
+    private String boy;
+    private Timestamp timestamp;
 }

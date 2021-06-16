@@ -1,26 +1,21 @@
 package com.avp.hibernate;
 
 import com.avp.hibernate.bean.Boy;
-import com.avp.hibernate.bean.Toy;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.avp.hibernate.dao.HibernateUtil;
+import org.hibernate.Session;
 
 public class App {
     public static void main(String[] args) {
-        Toy hulaHoop = new Toy("hulaHoop");
-        Toy solder = new Toy("solder");
-        Toy boll = new Toy("boll");
-//        List<Toy> listToy = new ArrayList<>();
-//        listToy.add(hulaHoop);
-//        listToy.add(solder);
-//        listToy.add(boll);
+        System.out.println("Maven + Hibernate + MySQL");
 
-//        Boy david = new Boy("David", listToy);
-        Boy david = new Boy("David");
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        Boy boy = new Boy();
+        boy.setBoy("Vavavvv");
+        session.save(boy);
+        session.getTransaction().commit();
+        session.close();
+        HibernateUtil.shotdown();
 
-        david.getToyList().addAll(List.of(hulaHoop, solder, boll));
-
-        System.out.println(david);
     }
 }
