@@ -1,6 +1,9 @@
 package com.avp.hibernate_annotation.dao;
 
+import com.avp.hibernate_annotation.bean.Alumnus;
+import com.avp.hibernate_annotation.bean.AlumnusPIIData;
 import com.avp.hibernate_annotation.bean.Boy;
+import com.avp.hibernate_annotation.bean.Student;
 import com.fasterxml.classmate.AnnotationConfiguration;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistry;
@@ -28,6 +31,9 @@ public class HibernateUtil {
                 Configuration configuration = new Configuration();
                 configuration.setProperties(settings);
                 configuration.addAnnotatedClass(Boy.class);
+                configuration.addAnnotatedClass(Student.class);
+                configuration.addAnnotatedClass(Alumnus.class);
+                configuration.addAnnotatedClass(AlumnusPIIData.class);
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties()).build();
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
